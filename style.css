@@ -1,0 +1,214 @@
+@media (max-width:991px) {
+    body.poster {
+        margin-top: 60vh;
+    }
+}
+
+body.poster {
+    background-attachment: fixed;
+}
+
+.top-5 {
+    top: 5px;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.accordion-button::selection {
+    background: transparent;
+}
+
+.accordion-button::-moz-selection {
+    background: transparent;
+}
+
+/* FAQ Styling */
+#faqAccordion .accordion-item,
+#faqAccordion .accordion-button,
+#faqAccordion .accordion-body {
+    background-color: transparent !important;
+}
+
+#faqAccordion .accordion-item {
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* adjust opacity/color if needed */
+    border-radius: 0;
+}
+
+#faqAccordion .accordion-button {
+    border: none;
+    background-color: transparent;
+    padding-left: 0;
+}
+
+#faqAccordion .accordion-button.collapsed {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#faqAccordion .accordion-button:focus {
+    box-shadow: none;
+}
+
+#faqAccordion .accordion-button:not(.collapsed) {
+    color: #ff6189;
+
+    /* Bootstrap's info */
+    background-color: transparent;
+}
+
+#faqAccordion .accordion-body {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#faqAccordion .accordion-button:hover {
+    color: #ff6189;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.accordion-button::after {
+    filter: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23ff6189' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 5.5l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+#faqAccordion .accordion-button {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+
+
+a {
+    color: #ff4d94;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #e63978;
+    text-decoration: underline;
+  }
+  body {
+    background-color: #fdf2f8; /* Soft pink background */
+    font-family: Arial, sans-serif;
+  }
+  
+  .ranker-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .stat-box {
+    height: 220px;
+    width: 100%;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Project block animation and layout */
+.project-block {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Thumbnail hover scale */
+  .project-thumb {
+    max-width: 180px;
+    transition: transform 0.2s ease;
+  }
+  .project-thumb:hover {
+    transform: scale(1.05);
+  }
+  .thumbnail:hover {
+    transform: scale(1.05);
+}
+  
+  /* Soft divider between projects */
+  .project-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+  }
+  
+  /* Interactive hover styles */
+  .project-block .btn:hover {
+    background-color: #ffb6c1;
+    color: black;
+    border-color: #ffb6c1;
+}
+
+.project-block .btn:hover h5 {
+    color: #ffb6c1;
+}
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .underline-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 182, 193, 0.5); /* subtle underline */
+    color: white;
+    padding: 0.25rem 0;
+    width: 250px;
+    text-align: center; /* left-aligned text */
+    outline: none;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .underline-input:focus {
+    border-bottom-color: rgba(255, 182, 193, 1); /* stronger on focus */
+    transform: scale(1.01);
+  }
+  
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.4s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

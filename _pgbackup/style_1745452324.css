@@ -1,0 +1,26 @@
+@media (max-width:991px) {
+    body.poster {
+        margin-top: 60vh;
+    }
+}
+
+body.poster {
+    background-attachment: fixed;
+}
+
+.top-5 {
+    top: 5px;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.accordion-button::selection {
+    background: transparent;
+}
+
+.accordion-button::-moz-selection {
+    background: transparent;
+}

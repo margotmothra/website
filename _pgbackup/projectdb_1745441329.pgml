@@ -1,0 +1,23 @@
+<project>
+    <documents></documents>
+    <dmdesigns>
+        <dmdesign active>
+            <dmdesignskill skill="bs5.colors" harmony="">
+                <dmcolor key="primary" color="rgb(252 15 56)"/>
+                <dmcolor key="secondary" color="rgb(130 1 24)"/>
+                <dmcolor key="info" color="#ff6189"/>
+                <dmcolor key="success" color="#0f9d58"/>
+                <dmcolor key="warning" color="#ffc107"/>
+                <dmcolor key="danger" color="#dc3545"/>
+                <dmcolor key="white" color="white"/>
+                <dmcolor key="light" color="#f8f9fa"/>
+                <dmcolor key="dark" color="#212529"/>
+            </dmdesignskill>
+            <dmdesignskill skill="fonts" text_weight="" text_color="" text_spacing="" text_effect="" text_italic="" text_smallcaps="" text_uppercase="" headings_weight="" headings_color="" headings_spacing="" headings_effect="" headings_italic="" headings_smallcaps="" headings_uppercase="" text_family="IBM Plex Mono" headings_family="IBM Plex Mono"></dmdesignskill>
+            <dmdesignskill skill="headings" h1_family="IBM Plex Mono"></dmdesignskill>
+            <dmdesignskill skill="background" image_for_colors keyword="patterns" selector=".poster" image="https://images.unsplash.com/photo-1604076850742-4c7221f3101b?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDIwNXx8cGF0dGVybnN8ZW58MHx8fHwxNjMyODUyMzA0&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=1200&fit=max"></dmdesignskill>
+            <dmdesignskill skill="bootstrap" gradients="" responsive_fonts="1" roundness="2" buttonRoundness="1" shadows="1" contrast="0"></dmdesignskill>
+        </dmdesign>
+    </dmdesigns>
+    <dmlocked bs5-colors-primary="false" bs5-colors-secondary="false" bs5-colors-info="true" bs5-colors-success="true" bs5-colors-warning="true" bs5-colors-danger="true" bs5-colors-white="true" bs5-colors-light="true" bs5-colors-dark="true" fonts-text_family="false" fonts-headings_family="false" bs5-colors-button-from_image="false" headings-h1_family="true" bootstrap-buttonRoundness="true" bootstrap-shadows="true" bootstrap-roundness="true" bootstrap-gradients="true" background-image="false" background-color="true"></dmlocked>
+</project>

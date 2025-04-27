@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css">
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="blocks.css">
+        <link href="style.css" rel="stylesheet">
+        <title>Margot's Ranker</title>
+        <style>.dot-loading::after { content: ' .'; animation: dots 1.2s steps(3, end) infinite; } @keyframes dots { 0% {  content: ' .'; }  33% {  content: ' ..'; }  66% {  content: ' ...'; }  100% {  content: ' .'; } }</style>
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+    </head>
+    <body class="bg-dark d-flex min-vh-100 text-muted vh-100">
+        <main class="bg-dark flex-grow-1">
+            <section class="bg-info position-relative text-white">
+                <div class="container position-relative">
+                    <div class="row">
+                        <section class="bg-info position-relative text-white">
+                            <div class="container position-relative">
+                                <div class="row">
+                                    <div class="col-xl-12 order-xl-2">
+                                        <nav class="navbar navbar-dark navbar-expand-lg shadow-none py-2"> 
+                                            <div class="container px-0">
+                                                <a class="align-items-center d-inline-flex fw-bold h4 mb-0 navbar-brand text-uppercase" href="home.html"> <span>Margot<br><p class="mb-0">Mothra</p></span> </a> 
+                                                <button class="navbar-toggler rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown-2" aria-controls="navbarNavDropdown-2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> 
+                                                </button>                                                 
+                                                <div class="collapse navbar-collapse text-uppercase text-white" id="navbarNavDropdown-2"> 
+                                                    <ul class="ms-auto navbar-nav"> 
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="margot_ranker.html">ranker</a>
+                                                        </li>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="projects.html">Projects</a>
+                                                        </li>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="faq.html">FAQ</a>
+                                                        </li>
+                                                    </ul>                                                     
+                                                </div>                                                 
+                                            </div>                                             
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="col-xl-6 pe-xl-5 ps-xl-5">
+</div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-dark mb-lg-5 pb-5 pb-lg-5 pt-5"> 
+                <style>.dot-loading::after { content: ' .'; animation: dots 1.2s steps(3, end) infinite; } @keyframes dots { 0% {  content: ' .'; }  33% {  content: ' ..'; }  66% {  content: ' ...'; }  100% {  content: ' .'; } }</style>
+                <div class="container pb-5 pt-5"> 
+                    <div class="align-items-center gy-4 row">
+                        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                            <h1 id="title" class="fade-up" style="font-size: 2rem; margin: 1rem 0; color: #ffb6c1;">Margot&apos;s Ranker&nbsp; &nbsp;&nbsp;</h1> 
+                            <div id="inputArea">
+                                <div class="input-section fade-up" style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
+                                    <input type="text" id="itemInput" placeholder="Add item(s) (comma separated)" style="
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ffb6c1;
+    color: white;
+    padding: 0.5rem 0;
+    width: 300px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+  " class="bg-dark"/>
+                                    <button onclick="addItems()" style="background-color: #ff69b4; border: none; color: white; padding: 0.5rem 1rem; margin-left: 1rem; border-radius: 8px; cursor: pointer;" class="bg-info text-light">Add</button>
+                                </div>
+                                <div class="items-list fade-up" id="itemsList" style="margin-top: 0;"></div>
+                                <button id="startBtn" onclick="initiateRanking()" style="margin-top: 1rem; display: none; background-color: #ff6189; border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Start Ranking</button>
+                            </div>
+                            <div id="rankingArea" style="display: none; flex-direction: column; align-items: center;">
+                                <h2 style="color: #ffb6c1;">Pick One:</h2>
+                                <div style="margin-top: 1rem; display: flex; gap: 2rem;">
+                                    <button id="optionA" onclick="vote('A')" style="background-color: #ff69b4; border: none; color: white; padding: 1rem 2rem; border-radius: 12px; font-size: 1.25rem; cursor: pointer;"></button>
+                                    <button id="optionB" onclick="vote('B')" style="background-color: #ff69b4; border: none; color: white; padding: 1rem 2rem; border-radius: 12px; font-size: 1.25rem; cursor: pointer;"></button>
+                                </div>
+                            </div>
+                            <div id="finalRankingArea" style="display: none; flex-direction: column; align-items: center;">
+                                <h2 style="color: #ffb6c1;">Final Ranking:</h2>
+                                <ol id="finalRankingList" style="color: white;"></ol>
+                                <button onclick="restartRanking()" style="background-color: #ff6189; border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Restart</button>
+                                <div style="margin-top: 1rem;">
+                                    <button onclick="downloadCSV()" style="background-color: #ff6189; border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Download CSV</button>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+        let items = [];
+        let rankingList = [];
+        let currentItemIndex = 1;
+        let currentCompareLow = 0;
+        let currentCompareHigh = 0;
+
+        document.getElementById('itemInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addItems();
+            }
+        });
+
+        function addItems() {
+            const input = document.getElementById('itemInput');
+            const newItems = input.value.split(',').map(item => item.trim()).filter(Boolean);
+            newItems.forEach(item => items.push(item));
+            input.value = '';
+            renderItems();
+        }
+
+        function renderItems() {
+            const list = document.getElementById('itemsList');
+            list.innerHTML = '';
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.style.display = 'flex';
+                div.style.alignItems = 'center';
+                div.style.justifyContent = 'center';
+                div.style.marginBottom = '0.5rem';
+
+                const input = document.createElement('input');
+                input.value = item;
+                input.classList.add('underline-input');
+                if (index === items.length - 1) {
+                    input.classList.add('fade-up');
+                    input.addEventListener('animationend', () => {
+                        input.classList.remove('fade-up');
+                    }, { once: true });
+                }
+                input.onchange = () => items[index] = input.value;
+
+                const removeBtn = document.createElement('button');
+                removeBtn.innerText = 'Remove';
+                removeBtn.onclick = () => {
+                    items.splice(index, 1);
+                    renderItems();
+                };
+                removeBtn.style.backgroundColor = '#fc0f38';
+                removeBtn.style.border = 'none';
+                removeBtn.style.color = 'white';
+                removeBtn.style.padding = '0.25rem 0.5rem';
+                removeBtn.style.borderRadius = '6px';
+                removeBtn.style.marginLeft = '0.25rem';
+                removeBtn.style.cursor = 'pointer';
+
+                div.appendChild(input);
+                div.appendChild(removeBtn);
+                list.appendChild(div);
+            });
+
+            document.getElementById('startBtn').style.display = items.length >= 2 ? 'inline-block' : 'none';
+        }
+
+        function initiateRanking() {
+                // Shuffle the items array
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [items[i], items[j]] = [items[j], items[i]];
+                }
+
+                // Hide the title during ranking phase
+                document.getElementById('title').style.display = 'none';
+                rankingList = [items[0]];
+                currentItemIndex = 1;
+                currentCompareLow = 0;
+                currentCompareHigh = 0;
+                document.getElementById('inputArea').style.display = 'none';
+                document.getElementById('rankingArea').style.display = 'flex';
+                startNextComparison();
+            }
+
+        function startNextComparison() {
+            if (currentItemIndex >= items.length) {
+                showFinalRanking();
+                return;
+            }
+
+            const item = items[currentItemIndex];
+            currentCompareLow = 0;
+            currentCompareHigh = rankingList.length - 1;
+            showComparison(item, currentCompareLow, currentCompareHigh);
+        }
+
+        function showComparison(item, low, high) {
+            if (low > high) {
+                rankingList.splice(low, 0, item);
+                currentItemIndex++;
+                startNextComparison();
+                return;
+            }
+            const mid = Math.floor((low + high) / 2);
+            document.getElementById('optionA').innerText = item;
+            document.getElementById('optionB').innerText = rankingList[mid];
+            currentCompareLow = low;
+            currentCompareHigh = high;
+        }
+
+        function vote(choice) {
+            const item = items[currentItemIndex];
+            const mid = Math.floor((currentCompareLow + currentCompareHigh) / 2);
+            if (choice === 'A') {
+                showComparison(item, currentCompareLow, mid - 1);
+            } else {
+                showComparison(item, mid + 1, currentCompareHigh);
+            }
+        }
+
+        function showFinalRanking() {
+            document.getElementById('rankingArea').style.display = 'none';
+            const finalList = document.getElementById('finalRankingList');
+            finalList.innerHTML = rankingList.map(i => `<li>${i}</li>`).join('');
+            document.getElementById('finalRankingArea').style.display = 'flex';
+        }
+
+        function restartRanking() {
+            // Reset everything
+            items = [];
+            rankingList = [];
+            currentItemIndex = 1;
+            currentCompareLow = 0;
+            currentCompareHigh = 0;
+            document.getElementById('title').style.display = 'block';
+            document.getElementById('inputArea').style.display = 'block';
+            document.getElementById('finalRankingArea').style.display = 'none';
+            renderItems();
+        }
+
+       function downloadCSV() {
+        const timestamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
+        const filename = `Ranking - ${timestamp}.csv`;
+        const header = "Rank,Item";
+        const rows = rankingList.map((item, index) => `${index + 1},${item}`);
+        const csvContent = [header, ...rows].join("\n");
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const link = document.createElement("a");
+        link.setAttribute("href", URL.createObjectURL(blob));
+        link.setAttribute("download", filename);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    </script>
+                    </div>
+                    <script>
+  const items = [];
+
+  document.getElementById('itemInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      addItems();
+    }
+  });
+
+  function addItems() {
+    const input = document.getElementById('itemInput');
+    const newItems = input.value.split(',').map(item => item.trim()).filter(Boolean);
+    newItems.forEach(item => items.push(item));
+    input.value = '';
+    renderItems();
+  }
+
+  function renderItems() {
+    const list = document.getElementById('itemsList');
+    list.innerHTML = '';
+    items.forEach((item, index) => {
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      div.style.justifyContent = 'center';
+      div.style.marginBottom = '0.5rem';
+
+      const input = document.createElement('input');
+      input.value = item;
+      input.style.background = '#2a2a3d';
+      input.style.color = 'white';
+      input.style.border = '1px solid #ffb6c1';
+      input.style.padding = '0.25rem';
+      input.style.borderRadius = '6px';
+      input.style.marginRight = '0.5rem';
+      input.style.width = '250px';
+      input.onchange = () => items[index] = input.value;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.innerText = 'Remove';
+      removeBtn.onclick = () => {
+        items.splice(index, 1);
+        renderItems();
+      };
+      removeBtn.style.backgroundColor = '#dd0030';
+      removeBtn.style.border = 'none';
+      removeBtn.style.color = 'white';
+      removeBtn.style.padding = '0.25rem 0.5rem';
+      removeBtn.style.borderRadius = '6px';
+      removeBtn.style.marginLeft = '0.25rem';
+      removeBtn.style.cursor = 'pointer';
+
+      div.appendChild(input);
+      div.appendChild(removeBtn);
+      list.appendChild(div);
+    });
+
+    document.getElementById('startBtn').style.display = items.length >= 2 ? 'inline-block' : 'none';
+  }
+
+  function startRanking() {
+    alert('Starting ranking with: ' + items.join(', '));
+    // Proceed to ranking logic...
+  }
+</script>
+                </div>                 
+            </section>
+            <footer class="bg-dark border-2 border-info border-top fixed-bottom pb-3 pt-3 text-white-50">
+                <div class="container">
+                    <div class="align-items-center gy-3 row text-center text-lg-start">
+                        <!-- Margot Mothra Branding (left) -->
+                        <div class="col-lg-3 col-sm-6 col-xl-4"><a class="d-inline-flex fw-bold h2 lh-1 link-primary mb-0 text-decoration-none text-uppercase" href="#"> <span class="text-info">Margot<br>Mothra</span> </a>
+                        </div>
+                        <!-- Email (centered) -->
+                        <div class="col-md col-sm-6 d-flex justify-content-center align-items-center"><a href="mailto:margot.mothra@gmail.com" class="fs-5 link-light text-decoration-none">margot.mothra@gmail.com</a>
+                        </div>
+                        <!-- Social Icons (right) -->
+                        <div class="col-lg-auto col-sm-6 order-lg-last text-lg-end">
+                            <div class="d-inline-flex flex-wrap gap-2 justify-content-center justify-content-lg-end"><a aria-label="discord" class="btn btn-outline-light lh-1 p-2 rounded-circle" href="https://discord.com/users/353409326762688514"> <img src="assets/discord.svg" alt="Discord" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/> </a><a href="https://www.tiktok.com/@dget.margot?_t=ZP-8vq0i0G7a3C&_r=1" aria-label="tiktok" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <img src="assets/tiktok.svg" alt="TikTok" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/> </a><a href="https://www.instagram.com/dget.margot?igsh=MWRvODNjbnJncTF6cA%3D%3D&utm_source=qr" aria-label="instagram" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                        <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.6.2 1.1.5 1.6 1s.8 1 .9 1.6c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.6-.5 1.1-1 1.6s-1 .8-1.6.9c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4-.6-.2-1.1-.5-1.6-1s-.8-1-1-1.6c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4.2-.6.5-1.1 1-1.6s1-.8 1.6-1c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zM12 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.4-10.8a1.4 1.4 0 1 1-1.4-1.4 1.4 1.4 0 0 1 1.4 1.4z"/>
+                                    </svg> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        <script>
+fetch("https://script.google.com/macros/s/AKfycbyIBV7uMsR2rIMpQffdSIU3y7Ddb6zwIEesd3YUYUQfE_1srS_20dEC-6QTWxeglFdi/exec")
+  .then(res => res.json())
+  .then(stats => {
+    const yearEl = document.getElementById("stat-year");
+    const monthEl = document.getElementById("stat-month");
+    const weekEl = document.getElementById("stat-week");
+
+    yearEl.classList.remove("dot-loading");
+    monthEl.classList.remove("dot-loading");
+    weekEl.classList.remove("dot-loading");
+
+    yearEl.textContent = stats.year;
+    monthEl.textContent = stats.month;
+    weekEl.textContent = stats.week;
+  })
+  .catch(err => {
+    console.error("Failed to fetch stats:", err);
+    document.getElementById("stat-year").textContent = "Error";
+    document.getElementById("stat-month").textContent = "Error";
+    document.getElementById("stat-week").textContent = "Error";
+  });
+</script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            function copyCode(btn) {
+              const code = btn.nextElementSibling.textContent;
+              navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => (btn.textContent = 'Copy'), 1000);
+              });
+            }
+          </script>
+    </body>
+</html>
