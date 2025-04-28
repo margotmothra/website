@@ -101,13 +101,17 @@ body.poster {
 }
 
 a {
-    color: #ff4d94;
-    text-decoration: none;
+  font-weight: normal; /* Ensure it's not bold */
+  font-style: normal;  /* Ensure it's not italic */
+  color: #ff4d94;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #e63978;
-    text-decoration: underline;
+  color: #e63978;
+  text-decoration: underline;
+  font-weight: normal; /* Ensure no bold on hover */
+  font-style: normal;  /* Ensure no italic on hover */
 }
 
 
