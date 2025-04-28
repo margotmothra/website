@@ -31,7 +31,7 @@
                                                     <ul class="ms-auto navbar-nav"> 
                                                         <li class="nav-item"> 
 </li><a class="link-light nav-link p-lg-3" href="margot_ranker.html">ranker</a>
-                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="#">Projects</a>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="projects.html">Projects</a>
                                                         </li>
                                                         <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="faq.html">Faq</a>
                                                         </li>
@@ -50,88 +50,27 @@
             </section>
             <section class="bg-dark pb-5 pt-5"> 
                 <style>.dot-loading::after { content: ' .'; animation: dots 1.2s steps(3, end) infinite; } @keyframes dots { 0% {  content: ' .'; }  33% {  content: ' ..'; }  66% {  content: ' ...'; }  100% {  content: ' .'; } }</style>
-                <div class="align-items-center gy-4 row text-white">
-                    <link rel="icon" href="assets/favicon.png" type="image/png">
-                    <div class="col-lg-8">
-                        <p class="mb-4 text-white"></p>
-                    </div>
-                    <div class="col-lg-4">
+                <div class="container pb-5 pt-5"> 
+                    <div class="align-items-center gy-4 row">
+                        <link rel="icon" href="assets/favicon.png" type="image/png">
+                        <div class="col-lg-8">
+                            <p class="mb-4 text-white"></p>
+                        </div>
+                        <div class="col-lg-4">
 </div>
-                    <section class="project-block">
-                        <h2 class="fs-1 project-title">The Ranker</h2>
-                        <p class="fs-5 project-description"><b>Objective</b>: Make a ranking tool that using a head to head &apos;this vs that&apos; style to build a ranked list<br><br><b>Background</b>:&nbsp; I do so many ranked lists and think a lot about what good qualities a ranking has. One problem to solve about sitting down to do a ranking is starting with a bias. Taking away as much big picture bias and boiling it down to just individial choices is <i>one way</i> to limit that bias and come up with a more objective list of your subjective feelings.<br><b><br>Tools used</b>: NVIM&nbsp;<br><br><b>Method: <br></b>1) Look through <a href="https://developers.google.com/workspace/sheets/api/guides/concepts" class="" target="_blank">google&apos;s API documentation</a> to see <a href="https://developers.google.com/apps-script/reference/base/mime-type" target="_blank">what information an App Script can pull</a><br>2) Write app script to identify how many spreadsheets I&apos;ve edited and write to a database sheet<br>3) Use FILTER functions to seperate out by week, month, and year. Put these COUNTS on a stats page<br>4) Write app script to look at these counts and publish as a web script<br>5) integrate into site<br><br><br></p>
-                        <div class="code-box">
-                            <div class="code-box-header"><span class="code-box-lang text-lowercase">log_activity.gs</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <section class="project-block">
+                            <h2 class="project-title">My Cool Project</h2>
+                            <p class="project-description">
+    A brief description of what this project does and why it's neat. </p>
+                            <img src="assets/my-cool-project.png" alt="Screenshot of My Cool Project" class="project-image">
+                            <div class="code-box">
+                                <div class="code-box-header"><span class="code-box-lang">HTML</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>&lt;div&gt;Example code snippet here&lt;/div&gt;</code></pre>
                             </div>
-                            <pre><code>function logDailySpreadsheetActivity() {
-        const files = DriveApp.getFilesByType(MimeType.GOOGLE_SHEETS);
-        const activitySheet = SpreadsheetApp.getActive().getSheetByName('Activity');
-        const today = new Date();
-        const rows = [];
-        
-        const myEmail = Session.getActiveUser().getEmail();
-        let count = 0;
-        
-        while (files.hasNext()) {
-            const file = files.next();
-            count++;
-        
-            let ownerEmail = '';
-            let ownedByMe = '';
-        
-            try {
-            ownerEmail = file.getOwner().getEmail();
-            ownedByMe = (ownerEmail === myEmail) ? 'Yes' : 'No';
-            } catch (e) {
-            ownerEmail = 'No Owner Available';
-            ownedByMe = 'Unknown';
-            }
-        
-            rows.push([
-            today,                  // A: date
-            '',                     // B: total sheets get calculated by a sequence function
-            file.getName(),         // C: file name
-            ownerEmail,             // D: owner email
-            ownedByMe,              // E: owned By me - used because multiple of my google accounts contribute to this
-            file.getLastUpdated()   // F: last updated
-            ]);
-        }
-        
-        if (rows.length > 0) {
-            rows[0][1] = count; 
-            activitySheet.getRange(activitySheet.getLastRow() + 1, 1, rows.length, 6).setValues(rows);
-        }
-    }</code></pre>
-                        </div>
-                        <div class="align-items-center pt-4 row">
-                            <div class="col-md-6">
-                                <p class="text-light fs-5">The code above is what queries the google drive and then prints to the activity page in the spreadsheet to the right. One of the major limitations of this script is it can only detect a binary &quot;last edited&quot; state to determine if a sheet has been worked on. it has no indication of the nature or complexity of the work involved. just that a cell was changed by me</p>
-                            </div>
-                            <div class="col-md-6 text-end">
-                                <img src="assets/activity.png" class="img-fluid rounded-1 shadow-sm w-100" alt="Activity image">
-                            </div>
-                        </div>
-                        <div class="code-box">
-                            <div class="code-box-header"><span class="code-box-lang text-lowercase">web_app.gs</span>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
-                            <pre><code>function doGet() {
-        const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Stats");
-        const [year, month, week] = sheet.getRange("A2:C2").getValues()[0];
-        const stats = { year, month, week };
-        return ContentService.createTextOutput(JSON.stringify(stats)).setMimeType(ContentService.MimeType.JSON);
-        }</code></pre>
-                        </div>
-                        <div class="align-items-center pt-4 row">
-                            <div class="col-md-6">
-                                <p class="text-light fs-5">this is the web app :) looks at A2:C2 and prints it to a JSON file that this website uses</p>
-                            </div>
-                            <div class="col-md-6 text-end">
-                                <img src="assets/statspage.png" class="img-fluid rounded-1 shadow-sm w-100" alt="Activity image">
-                            </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>                 
             </section>
             <footer class="bg-dark border-2 border-info border-top fixed-bottom pb-3 position-fixed pt-3 text-white-50">

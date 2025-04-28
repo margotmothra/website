@@ -14,7 +14,7 @@
         <title>Margot's site </title>
         <style>.dot-loading::after { content: ' .'; animation: dots 1.2s steps(3, end) infinite; } @keyframes dots { 0% {  content: ' .'; }  33% {  content: ' ..'; }  66% {  content: ' ...'; }  100% {  content: ' .'; } }</style>
     </head>
-    <body class="bg-dark text-muted">
+    <body class="bg-dark text-muted vh-100">
         <main class="bg-dark">
             <section class="bg-info position-relative text-white">
                 <div class="container position-relative">
@@ -31,7 +31,7 @@
                                                     <ul class="ms-auto navbar-nav"> 
                                                         <li class="nav-item"> 
 </li><a class="link-light nav-link p-lg-3" href="margot_ranker.html">ranker</a>
-                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="#">Projects</a>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="projects.html">Projects</a>
                                                         </li>
                                                         <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="faq.html">Faq</a>
                                                         </li>
@@ -50,68 +50,42 @@
             </section>
             <section class="bg-dark pb-5 pt-5"> 
                 <style>.dot-loading::after { content: ' .'; animation: dots 1.2s steps(3, end) infinite; } @keyframes dots { 0% {  content: ' .'; }  33% {  content: ' ..'; }  66% {  content: ' ...'; }  100% {  content: ' .'; } }</style>
-                <div class="align-items-center gy-4 row text-white">
-                    <link rel="icon" href="assets/favicon.png" type="image/png">
-                    <div class="col-lg-8">
-                        <p class="mb-4 text-white"></p>
+                <div class="container pb-5 pt-5"> 
+                    <div class="align-items-center gy-4 row">
+                        <link rel="icon" href="assets/favicon.png" type="image/png">
+                        <div class="col-lg-8">
+                            <p class="mb-4 text-white"></p>
+                        </div>
+                        <div class="col-lg-4">
+</div>
+                        <section class="project-block">
+                            <h2 class="project-title">My Cool Project</h2>
+                            <p class="project-description">
+    A brief description of what this project does and why it's neat. </p>
+                            <img src="assets/my-cool-project.png" alt="Screenshot of My Cool Project" class="project-image">
+                            <div class="code-box">
+                                <div class="code-box-header"><span class="code-box-lang">HTML</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>&lt;div&gt;Example code snippet here&lt;/div&gt;</code></pre>
+                            </div>
+                        </section>
                     </div>
-                    <div class="col-lg-4">
-</div>
-                    <section class="project-block">
-                        <h2 class="fs-1 project-title">The Ranker</h2>
-                        <p class="fs-5 pe-1 project-description ps-1"><b>Objective</b>: Make a ranking tool that using a head to head &apos;this vs that&apos; style to build a ranked list<br><br><b>Background</b>:&nbsp; I do so many ranked lists and think a lot about what good qualities a ranking has. One problem to solve about sitting down to do a ranking is starting with a bias. Taking away as much big picture bias and boiling it down to just individial choices is <i>one way</i> to limit that bias and come up with a more objective list of your subjective feelings.<br><br></p>
-                        <div class="code-box">
-</div>
-                        <div class="align-items-center pt-4 row">
-                            <div class="col-md-6 ps-5">
-                                <p class="fs-5 pb-5"><b>Tools used</b>: NVIM&nbsp;<br></p>
-                                <p class="fs-5 pb-5 text-light">Method:<br>1) Create an input form<br>2) Write the ranking logic<br>3) lots of tuning to make the user experience better<br>4) bonus: download to csv function<br>5) integrate into site</p>
-                            </div>
-                            <div class="col-md-6 text-end">
-                                <img src="assets/ranker2.png" class="img-fluid rounded-1 shadow-sm w-100" alt="Activity image">
-                            </div>
-                        </div>
-                        <div class="align-items-center pt-4 row">
-                            <div class="col-md-6 text-start">
-                                <img src="assets/flowchart.png" class="img-fluid pb-3 ps-3 rounded-1 shadow-sm w-80" alt="Activity image">
-                            </div>
-                            <div class="col-md-6">
-                                <p class="fs-5 pe-5 text-light" style="text-align: left;">This ranker uses binary insertion.
-It shuffles all items first, places the first item automatically, then for each new item, it binary searches through the ranked list.
-At each comparison, if the new item wins against the midpoint, it moves up; if it loses, it moves down.
-This repeats until all items are inserted, with about log₂(N) comparisons per item</p>
-                            </div>
-                        </div>
-                        <p class="fs-5 pe-3 ps-3">The binary insertion method optimizes for O(log n) comparisons per item but relies on strict transitive consistency across user inputs (A &gt; B ∧ B &gt; C &rarr; A &gt; C). Human preference data is often non-transitive and noisy, introducing the risk of local ordering errors. Since elements are positioned based on initial comparisons without backtracking, early misjudgments propagate through the final ranked list without correction.</p>
-                        <div class="code-box">
-</div>
-                        <div class="align-items-center pt-4 row">
-                            <div class="col-md-6">
-</div>
-                            <div class="col-md-6 text-end">
-</div>
-                        </div>
-                    </section>
                 </div>                 
             </section>
-            <footer class="bg-dark border-2 border-info border-top fixed-bottom pb-3 position-fixed pt-3 text-white-50">
+            <footer class="bg-dark border-2 border-info border-top fixed-bottom pb-3 position-absolute pt-3 text-white-50">
                 <div class="container">
                     <div class="align-items-center gy-3 row">
-                        <div class="col-lg-3 col-sm-6 col-xl-4">
-                            <a class="d-inline-flex fw-bold h2 lh-1 link-primary mb-0 text-decoration-none text-uppercase" href="#"> <span class="text-info">Margot<br>Mothra</span> </a>
+                        <div class="col-lg-3 col-sm-6 col-xl-4"><a class="d-inline-flex fw-bold h2 lh-1 link-primary mb-0 text-decoration-none text-uppercase" href="#"> <span class="text-info">Margot<br>Mothra</span> </a>
                         </div>
                         <div class="col-lg-auto col-sm-6 order-lg-last">
-                            <div class="d-inline-flex flex-wrap gap-2">
-                                <a aria-label="tiktok" class="btn btn-outline-light lh-1 p-2 rounded-circle" href=" https://discord.com/users/353409326762688514"> <img src="assets/discord.svg" alt="Discord" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/></a>
-                                <a href="https://www.tiktok.com/@dget.margot?_t=ZP-8vq0i0G7a3C&_r=1" aria-label="tiktok" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <img src="assets/tiktok.svg" alt="TikTok" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/></a>
-                                <a href="https://www.instagram.com/dget.margot?igsh=MWRvODNjbnJncTF6cA%3D%3D&utm_source=qr" aria-label="instagram" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <div class="d-inline-flex flex-wrap gap-2"><a aria-label="tiktok" class="btn btn-outline-light lh-1 p-2 rounded-circle" href=" https://discord.com/users/353409326762688514"> <img src="assets/discord.svg" alt="Discord" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/></a><a href="https://www.tiktok.com/@dget.margot?_t=ZP-8vq0i0G7a3C&_r=1" aria-label="tiktok" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <img src="assets/tiktok.svg" alt="TikTok" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/></a><a href="https://www.instagram.com/dget.margot?igsh=MWRvODNjbnJncTF6cA%3D%3D&utm_source=qr" aria-label="instagram" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                                         <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.6.2 1.1.5 1.6 1s.8 1 .9 1.6c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.6-.5 1.1-1 1.6s-1 .8-1.6.9c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4-.6-.2-1.1-.5-1.6-1s-.8-1-1-1.6c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4.2-.6.5-1.1 1-1.6s1-.8 1.6-1c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zM12 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.4-10.8a1.4 1.4 0 1 1-1.4-1.4 1.4 1.4 0 0 1 1.4 1.4z"/> 
                                         <!-- Instagram icon path here -->
                                     </svg> </a>
                             </div>
                         </div>
-                        <div class="col-md col-sm-6">
-                            <a href="mailto:info@company.com" class="fs-5 link-light text-decoration-none">margot.mothra@gmail.com</a>
+                        <div class="col-md col-sm-6"><a href="mailto:margot.mothra@gmail.com" class="fs-5 link-light text-decoration-none">margot.mothra@gmail.com</a>
                         </div>
                     </div>
                 </div>

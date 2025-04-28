@@ -33,7 +33,7 @@
                                                         <li class="nav-item"> 
 </li>
                                                         <a class="link-light nav-link p-lg-3" href="margot_ranker.html">ranker</a>
-                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="#">Projects</a>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="projects.html">Projects</a>
                                                         </li>
                                                         <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="faq.html">Faq</a>
                                                         </li>
@@ -61,11 +61,11 @@
                         <div class="col-lg-4">
 </div>
                         <section class="project-block">
-                            <h2 class="project-title">Spreadsheet count tracker</h2>
-                            <p class="project-description"><b>Objective</b>: Embed a count of the number of spreadsheets I work on in a given year, month, and week<br><br><b>Background</b>: inspired by the GitHub Activity Graphs, I wanted to to know how much i was actually contributing to in my spreadsheets<br><br><b>Tools used</b>: Google Sheets, Apps Scripts<br><br><b>Method: <br></b>1) Look through <a href="https://developers.google.com/workspace/sheets/api/guides/concepts" class="" target="_blank">google&apos;s API documentation</a> to see <a href="https://developers.google.com/apps-script/reference/base/mime-type" target="_blank">what information an App Script can pull</a><br>2) Write app script to identify how many spreadsheets I&apos;ve edited and write to a database sheet<br>3) Use FILTER functions to seperate out by week, month, and year. Put these COUNTS on a stats page<br>4) Write app script to look at these counts and publish as a web script<br>5) integrate into site<br><br><br></p>
+                            <h2 class="fs-1 project-title">Spreadsheet count tracker</h2>
+                            <p class="fs-5 project-description"><b>Objective</b>: Embed a count of the number of spreadsheets I work on in a given year, month, and week<br><br><b>Background</b>: inspired by the GitHub Activity Graphs, I wanted to to know how much i was actually contributing to in my spreadsheets. I also wanted a test project to get data from spreadsheets and put it into a webpage. I do a lot of spreadsheets but i dont do a lot of websites. I also don&apos;t do a lot of Web Apps<br><br><b>Tools used</b>: Google Sheets, Apps Scripts<br><br><b>Method: <br></b>1) Look through <a href="https://developers.google.com/workspace/sheets/api/guides/concepts" class="" target="_blank">google&apos;s API documentation</a> to see <a href="https://developers.google.com/apps-script/reference/base/mime-type" target="_blank">what information an App Script can pull</a><br>2) Write app script to identify how many spreadsheets I&apos;ve edited and write to a database sheet<br>3) Use FILTER functions to seperate out by week, month, and year. Put these COUNTS on a stats page<br>4) Write app script to look at these counts and publish as a web script<br>5) integrate into site<br><br><br></p>
                             <div class="code-box">
                                 <div class="code-box-header">
-                                    <span class="code-box-lang text-lowercase">log_activity.HTML</span>
+                                    <span class="code-box-lang text-lowercase">log_activity.gs</span>
                                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                                 </div>
                                 <pre><code>function logDailySpreadsheetActivity() {
@@ -128,8 +128,23 @@
         return ContentService.createTextOutput(JSON.stringify(stats)).setMimeType(ContentService.MimeType.JSON);
         }</code></pre>
                             </div>
-                            <p class="project-description" style="text-align: center;">this is the web app :) looks at A2:C2 and prints it to a JSON file that this website uses&nbsp;</p>
+                            <div class="align-items-center pt-4 row">
+                                <div class="col-md-6">
+                                    <p class="text-light fs-5">this is the web app :) looks at A2:C2 and prints it to a JSON file that this website uses</p>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <img src="assets/statspage.png" class="img-fluid rounded-1 shadow-sm w-100" alt="Activity image">
+                                </div>
+                            </div>
                         </section>
+                    </div>
+                    <div class="align-items-center pt-4 row">
+                        <div class="col-md-6 text-start">
+                            <img src="assets/getstats.png" class="img-fluid pb-3 rounded-1 shadow-sm w-100" alt="Activity image">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-light fs-5" style="text-align: left;">and this is how the website calls them!&nbsp;</p>
+                        </div>
                     </div>
                     <div class="g-3 mb-4 row align-items-stretch">
                         <div class="col-md-4">

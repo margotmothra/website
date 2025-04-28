@@ -16,7 +16,7 @@
         <link rel="icon" href="assets/favicon.png" type="image/png">
     </head>
     <body class="bg-dark d-flex min-vh-100 text-muted vh-100">
-        <main class="bg-dark flex-grow-1">
+        <main class="bg-dark flex-grow-1 vh-100">
             <section class="bg-info position-relative text-white">
                 <div class="container position-relative">
                     <div class="row">
@@ -25,7 +25,8 @@
                                 <div class="row">
                                     <div class="col-xl-12 order-xl-2">
                                         <nav class="navbar navbar-dark navbar-expand-lg shadow-none py-2"> 
-                                            <div class="container px-0"><a class="align-items-center d-inline-flex fw-bold h4 mb-0 navbar-brand text-uppercase" href="home.html"> <span>Margot<br><p class="mb-0">Mothra</p></span> </a> 
+                                            <div class="container px-0">
+                                                <a class="align-items-center d-inline-flex fw-bold h4 mb-0 navbar-brand text-uppercase" href="home.html"> <span>Margot<br><p class="mb-0">Mothra</p></span> </a> 
                                                 <button class="navbar-toggler rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown-2" aria-controls="navbarNavDropdown-2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> 
                                                 </button>                                                 
                                                 <div class="collapse navbar-collapse text-uppercase text-white" id="navbarNavDropdown-2"> 
@@ -34,7 +35,7 @@
                                                         </li>
                                                         <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="projects.html">Projects</a>
                                                         </li>
-                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="#">FAQ</a>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="faq.html">FAQ</a>
                                                         </li>
                                                     </ul>                                                     
                                                 </div>                                                 
@@ -54,9 +55,9 @@
                 <div class="container pb-5 pt-5"> 
                     <div class="align-items-center gy-4 row">
                         <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                            <h1 id="title" style="font-size: 2rem; margin: 1rem 0; color: #ffb6c1;">Margot&apos;s Ranker&nbsp; &nbsp;&nbsp;</h1>
+                            <h1 id="title" class="fade-up" style="font-size: 2rem; margin: 1rem 0; color: #ffb6c1;">Margot&apos;s Ranker&nbsp; &nbsp;&nbsp;</h1> 
                             <div id="inputArea">
-                                <div class="input-section" style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
+                                <div class="input-section fade-up" style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
                                     <input type="text" id="itemInput" placeholder="Add item(s) (comma separated)" style="
     background: transparent;
     border: none;
@@ -70,7 +71,7 @@
   " class="bg-dark"/>
                                     <button onclick="addItems()" style="background-color: #ff69b4; border: none; color: white; padding: 0.5rem 1rem; margin-left: 1rem; border-radius: 8px; cursor: pointer;" class="bg-info text-light">Add</button>
                                 </div>
-                                <div class="items-list" id="itemsList" style="margin-top: 0;"></div>
+                                <div class="items-list fade-up" id="itemsList" style="margin-top: 0;"></div>
                                 <button id="startBtn" onclick="initiateRanking()" style="margin-top: 1rem; display: none; background-color: #ff6189; border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Start Ranking</button>
                             </div>
                             <div id="rankingArea" style="display: none; flex-direction: column; align-items: center;">
@@ -123,13 +124,13 @@
 
                 const input = document.createElement('input');
                 input.value = item;
-                input.style.background = '#2a2a3d';
-                input.style.color = 'white';
-                input.style.border = '1px solid #ffb6c1';
-                input.style.padding = '0.25rem';
-                input.style.borderRadius = '6px';
-                input.style.marginRight = '0.5rem';
-                input.style.width = '250px';
+                input.classList.add('underline-input');
+                if (index === items.length - 1) {
+                    input.classList.add('fade-up');
+                    input.addEventListener('animationend', () => {
+                        input.classList.remove('fade-up');
+                    }, { once: true });
+                }
                 input.onchange = () => items[index] = input.value;
 
                 const removeBtn = document.createElement('button');
