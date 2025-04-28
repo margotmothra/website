@@ -138,9 +138,9 @@ a {
 /* Add more styles similarly for other weights (ExtraLight, Light, Medium, SemiBold, etc.) */
 
 body {
-    background-color: #fdf2f8; /* Soft pink background */
-    font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace !important;
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 100; /* Use default weight, or specify a specific weight like 400 or 700 */
