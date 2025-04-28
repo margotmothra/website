@@ -1,3 +1,18 @@
+/* Override Bootstrap's body font family */
+:root {
+  --bs-body-font-family: 'IBM Plex Mono', monospace;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+/* Also, try targeting the HTML element itself */
+html {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+
 @media (max-width:991px) {
     body.poster {
         margin-top: 60vh;
@@ -328,17 +343,4 @@ a:hover {
 
         /* Ensure the text section is full width */
     }
-}
-/* Override Bootstrap's body font family */
-:root {
-  --bs-body-font-family: 'IBM Plex Mono', monospace;
-}
-
-body {
-  font-family: 'IBM Plex Mono', monospace !important;
-}
-
-/* Also, try targeting the HTML element itself */
-html {
-  font-family: 'IBM Plex Mono', monospace !important;
 }
