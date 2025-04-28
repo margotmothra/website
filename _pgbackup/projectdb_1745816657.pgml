@@ -13,8 +13,8 @@
                 <dmcolor key="light" color="#f8f9fa"/>
                 <dmcolor key="dark" color="#212529"/>
             </dmdesignskill>
-            <dmdesignskill skill="fonts" text_weight="" text_color="" text_spacing="" text_effect="" text_italic="" text_smallcaps="" text_uppercase="" headings_weight="" headings_color="" headings_spacing="" headings_effect="" headings_italic="" headings_smallcaps="" headings_uppercase="" text_family="IBM Plex Mono" headings_family="IBM Plex Mono" lead_family="IBM Plex Mono"></dmdesignskill>
-            <dmdesignskill skill="headings" h1_family="IBM Plex Mono" h2_family="IBM Plex Mono" h3_family="IBM Plex Mono" h4_family="IBM Plex Mono" h5_family="IBM Plex Mono"></dmdesignskill>
+            <dmdesignskill skill="fonts" text_weight="" text_color="" text_spacing="" text_effect="" text_italic="" text_smallcaps="" text_uppercase="" headings_weight="" headings_color="" headings_spacing="" headings_effect="" headings_italic="" headings_smallcaps="" headings_uppercase="" text_family="IBM Plex Mono" headings_family="IBM Plex Mono"></dmdesignskill>
+            <dmdesignskill skill="headings" h1_family="IBM Plex Mono"></dmdesignskill>
             <dmdesignskill skill="background" image_for_colors keyword="patterns" selector=".poster" image="https://images.unsplash.com/photo-1604076850742-4c7221f3101b?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDIwNXx8cGF0dGVybnN8ZW58MHx8fHwxNjMyODUyMzA0&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=1200&fit=max"></dmdesignskill>
             <dmdesignskill skill="bootstrap" gradients="" responsive_fonts="1" roundness="2" buttonRoundness="1" shadows="1" contrast="0"></dmdesignskill>
         </dmdesign>
