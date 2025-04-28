@@ -141,7 +141,41 @@ body {
     background-color: #fdf2f8; /* Soft pink background */
     font-family: 'IBM Plex Mono', monospace;
 }
-  
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 100; /* Use default weight, or specify a specific weight like 400 or 700 */
+}
+
+h1 {
+  font-size: 2.5rem; /* Adjust size as needed */
+  font-weight: bold; /* Example to make h1 bold */
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
   .ranker-container {
     max-width: 600px;
     margin: auto;
