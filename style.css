@@ -212,3 +212,28 @@ a {
       transform: translateY(0);
     }
   }
+
+  #itemsList {
+    height: 300px; /* or any other fixed height */
+    overflow-y: auto; /* Allows vertical scrolling when content overflows */
+    margin-bottom: 1rem; /* Optional, just for spacing */
+}
+
+  .scrollable-container {
+    height: 300px; /* Adjust height as needed */
+    overflow-y: auto; /* Adds vertical scrolling when content overflows */
+    margin-bottom: 1rem; /* Optional for spacing */
+}
+
+.code-box {
+  max-height: 500px; /* Limit the height of the code box */
+  overflow-y: auto;  /* Enables vertical scrolling when content overflows */
+  position: relative;
+}
+
+.code-box-header {
+  position: sticky;
+  top: 0;             /* Keep the header at the top of the code box */
+  z-index: 10;        /* Ensures the header is above the content */
+  padding: 10px;      /* Optional: Adjust padding */
+}

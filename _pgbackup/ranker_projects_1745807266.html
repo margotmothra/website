@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css">
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="blocks.css">
+        <link href="style.css" rel="stylesheet">
+        <title>Margot's site </title>
+        <style>.dot-loading::after { content: ' .'; animation: dots 1.2s steps(3, end) infinite; } @keyframes dots { 0% {  content: ' .'; }  33% {  content: ' ..'; }  66% {  content: ' ...'; }  100% {  content: ' .'; } }</style>
+    </head>
+    <body class="bg-dark text-muted">
+        <main class="bg-dark">
+            <section class="bg-info position-relative text-white">
+                <div class="container position-relative">
+                    <div class="row">
+                        <section class="bg-info position-relative text-white">
+                            <div class="container position-relative">
+                                <div class="row">
+                                    <div class="col-xl-12 order-xl-2">
+                                        <nav class="navbar navbar-dark navbar-expand-lg shadow-none py-2"> 
+                                            <div class="container px-0"><a class="align-items-center d-inline-flex fw-bold h4 mb-0 navbar-brand text-uppercase" href="home.html"> <span>Margot<br><p class="mb-0">Mothra</p></span> </a> 
+                                                <button class="navbar-toggler rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown-2" aria-controls="navbarNavDropdown-2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> 
+                                                </button>                                                 
+                                                <div class="collapse navbar-collapse text-uppercase text-white" id="navbarNavDropdown-2"> 
+                                                    <ul class="ms-auto navbar-nav"> 
+                                                        <li class="nav-item"> 
+</li><a class="link-light nav-link p-lg-3" href="margot_ranker.html">ranker</a>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="projects.html">Projects</a>
+                                                        </li>
+                                                        <li class="nav-item"> <a class="link-light nav-link p-lg-3" href="faq.html">Faq</a>
+                                                        </li>
+                                                    </ul>                                                     
+                                                </div>                                                 
+                                            </div>                                             
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="col-xl-6 pe-xl-5 ps-xl-5">
+</div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-dark pb-5 pt-5"> 
+                <style>.dot-loading::after { content: ' .'; animation: dots 1.2s steps(3, end) infinite; } @keyframes dots { 0% {  content: ' .'; }  33% {  content: ' ..'; }  66% {  content: ' ...'; }  100% {  content: ' .'; } }</style>
+                <div class="container pb-5 pt-5"> 
+                    <div class="align-items-center gy-4 row text-white">
+                        <link rel="icon" href="assets/favicon.png" type="image/png">
+                        <div class="col-lg-8">
+                            <p class="mb-4 text-white"></p>
+                        </div>
+                        <div class="col-lg-4">
+</div>
+                        <section class="project-block">
+                            <h2 class="fs-1 pb-2 project-title ps-3">The Ranker</h2>
+                            <p class="fs-5 pe-3 project-description ps-3"><b>Objective</b>: Make a ranking tool that using a head to head &apos;this vs that&apos; style to build a ranked list<br><br><b>Background</b>:&nbsp; I do so many ranked lists and think a lot about what good qualities a ranking has. One problem to solve about sitting down to do a ranking is starting with a bias. Taking away as much big picture bias and boiling it down to just individial choices is <i>one way</i> to limit that bias and come up with a more objective list of your subjective feelings.<br><br><b>Tools used</b>: NVIM&nbsp;<br></p>
+                            <div class="code-box">
+</div>
+                            <div class="align-items-center mb-n5 mt-n5 pt-0 row">
+                                <div class="col-md-6 ps-5">
+                                    <p class="fs-5 pb-5 text-light"><b>Method:<br></b>1) Create an input form<br>2) Write the ranking logic<br>3) lots of tuning to make the user experience better<br>4) bonus: download to csv function<br>5) integrate into site</p>
+                                </div>
+                                <div class="col-md-6 text-end"><a href="margot_ranker.html"><img src="assets/ranker2.png" class="img-fluid rounded-1 shadow-sm thumbnail w-80" alt="Activity image"></a>
+                                </div>
+                            </div>
+                            <div class="align-items-center pt-4 row">
+                                <div class="col-md-6 text-start">
+                                    <img src="assets/flowchart.png" class="img-fluid pb-3 ps-3 rounded-1 shadow-sm w-65" alt="Activity image">
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="fs-5 pe-5 text-light" style="text-align: left;">This ranker uses binary insertion.
+It shuffles all items first, places the first item automatically, then for each new item, it binary searches through the ranked list.
+At each comparison, if the new item wins against the midpoint, it moves up; if it loses, it moves down.
+This repeats until all items are inserted, with about log₂(N) comparisons per item</p>
+                                </div>
+                            </div>
+                            <p class="fs-5  pe-3 ps-3 pt-4">The binary insertion method optimizes for O(log n) comparisons per item but relies on strict transitive consistency across user inputs (A &gt; B ∧ B &gt; C &rarr; A &gt; C). But in reality, our preferences are often non-transitive and noisy, introducing the risk of local ordering errors. Since elements are positioned based on initial comparisons without backtracking, early misjudgments propagate through the final ranked list with limited opprotunities to correct. It&apos;s a balance between needing to iterate thousands of times and opening yourself for risk of innacuracies. I think this ranker does pretty good at giving an accurate and honest ranking while respecting the users time.</p>
+                            <section class="project-block">
+                                <div class="code-box">
+                                    <div class="code-box-header">
+                                        <span class="code-box-lang">HTML</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                    </div>
+                                    <pre><code><script>
+                                        let items = [];
+                                        let rankingList = [];
+                                        let currentItemIndex = 1;
+                                        let currentCompareLow = 0;
+                                        let currentCompareHigh = 0;
+                                        
+                                        document.getElementById('itemInput').addEventListener('keydown', function(e) {
+                                            if (e.key === 'Enter') {
+                                                e.preventDefault();
+                                                addItems();
+                                            }
+                                        });
+                                        
+                                        function addItems() {
+                                            const input = document.getElementById('itemInput');
+                                            const newItems = input.value.split(',').map(item => item.trim()).filter(Boolean);
+                                            newItems.forEach(item => items.push(item));
+                                            input.value = '';
+                                            renderItems();
+                                        }
+                                        
+                                        function renderItems() {
+                                            const list = document.getElementById('itemsList');
+                                            list.innerHTML = '';
+                                            items.forEach((item, index) => {
+                                                const div = document.createElement('div');
+                                                div.style.display = 'flex';
+                                                div.style.alignItems = 'center';
+                                                div.style.justifyContent = 'center';
+                                                div.style.marginBottom = '0.5rem';
+                                        
+                                                const input = document.createElement('input');
+                                                input.value = item;
+                                                input.classList.add('underline-input');
+                                                if (index === items.length - 1) {
+                                                    input.classList.add('fade-up');
+                                                    input.addEventListener('animationend', () => {
+                                                        input.classList.remove('fade-up');
+                                                    }, { once: true });
+                                                }
+                                                input.onchange = () => items[index] = input.value;
+                                        
+                                                const removeBtn = document.createElement('button');
+                                                removeBtn.innerText = 'Remove';
+                                                removeBtn.onclick = () => {
+                                                    items.splice(index, 1);
+                                                    renderItems();
+                                                };
+                                                removeBtn.style.backgroundColor = '#fc0f38';
+                                                removeBtn.style.border = 'none';
+                                                removeBtn.style.color = 'white';
+                                                removeBtn.style.padding = '0.25rem 0.5rem';
+                                                removeBtn.style.borderRadius = '6px';
+                                                removeBtn.style.marginLeft = '0.25rem';
+                                                removeBtn.style.cursor = 'pointer';
+                                        
+                                                div.appendChild(input);
+                                                div.appendChild(removeBtn);
+                                                list.appendChild(div);
+                                            });
+                                        
+                                            document.getElementById('startBtn').style.display = items.length >= 2 ? 'inline-block' : 'none';
+                                        }
+                                        
+                                        function initiateRanking() {
+                                            for (let i = items.length - 1; i > 0; i--) {
+                                                const j = Math.floor(Math.random() * (i + 1));
+                                                [items[i], items[j]] = [items[j], items[i]];
+                                            }
+                                        
+                                            document.getElementById('title').style.display = 'none';
+                                            rankingList = [items[0]];
+                                            currentItemIndex = 1;
+                                            currentCompareLow = 0;
+                                            currentCompareHigh = 0;
+                                            document.getElementById('inputArea').style.display = 'none';
+                                            document.getElementById('rankingArea').style.display = 'flex';
+                                            startNextComparison();
+                                        }
+                                        
+                                        function startNextComparison() {
+                                            if (currentItemIndex >= items.length) {
+                                                showFinalRanking();
+                                                return;
+                                            }
+                                        
+                                            const item = items[currentItemIndex];
+                                            currentCompareLow = 0;
+                                            currentCompareHigh = rankingList.length - 1;
+                                            showComparison(item, currentCompareLow, currentCompareHigh);
+                                        }
+                                        
+                                        function showComparison(item, low, high) {
+                                            if (low > high) {
+                                                rankingList.splice(low, 0, item);
+                                                currentItemIndex++;
+                                                startNextComparison();
+                                                return;
+                                            }
+                                            const mid = Math.floor((low + high) / 2);
+                                            document.getElementById('optionA').innerText = item;
+                                            document.getElementById('optionB').innerText = rankingList[mid];
+                                            currentCompareLow = low;
+                                            currentCompareHigh = high;
+                                        }
+                                        
+                                        function vote(choice) {
+                                            const item = items[currentItemIndex];
+                                            const mid = Math.floor((currentCompareLow + currentCompareHigh) / 2);
+                                            if (choice === 'A') {
+                                                showComparison(item, currentCompareLow, mid - 1);
+                                            } else {
+                                                showComparison(item, mid + 1, currentCompareHigh);
+                                            }
+                                        }
+                                        
+                                        function showFinalRanking() {
+                                            document.getElementById('rankingArea').style.display = 'none';
+                                            const finalList = document.getElementById('finalRankingList');
+                                            finalList.innerHTML = rankingList.map(i => `<li>${i}</li>`).join('');
+                                            document.getElementById('finalRankingArea').style.display = 'flex';
+                                        }
+                                        
+                                        function restartRanking() {
+                                            items = [];
+                                            rankingList = [];
+                                            currentItemIndex = 1;
+                                            currentCompareLow = 0;
+                                            currentCompareHigh = 0;
+                                            document.getElementById('title').style.display = 'block';
+                                            document.getElementById('inputArea').style.display = 'block';
+                                            document.getElementById('finalRankingArea').style.display = 'none';
+                                            renderItems();
+                                        }
+                                        
+                                        function downloadCSV() {
+                                            const timestamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
+                                            const filename = `Ranking - ${timestamp}.csv`;
+                                            const header = "Rank,Item";
+                                            const rows = rankingList.map((item, index) => `${index + 1},${item}`);
+                                            const csvContent = [header, ...rows].join("\n");
+                                            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+                                            const link = document.createElement("a");
+                                            link.setAttribute("href", URL.createObjectURL(blob));
+                                            link.setAttribute("download", filename);
+                                            document.body.appendChild(link);
+                                            link.click();
+                                            document.body.removeChild(link);
+                                        }
+                                        </script></code></pre>
+                                </div>
+                            </section>
+                            <p class="fs-5 mb-n5 pe-3 ps-3 pt-5">The addItems() function handles the adding of items, and renderItems() updates the list on screen. During the ranking phase, initiateRanking() shuffles the items (fischer-yates algorithm) and sets up the first comparison. The vote() function adjusts the ranking list based on user choices, narrowing down options. Each comparison moves the item up or down, and once all items are ranked, showFinalRanking() displays the final order. Users can save results with the downloadCSV() function, which exports the ranking as a CSV so it can go directly to your spreadsheet</p>
+                            <div class="code-box">
+</div>
+                            <div class="align-items-center pt-4 row">
+                                <div class="col-md-6">
+</div>
+                                <div class="col-md-6 text-end">
+</div>
+                            </div>
+                        </section>
+                    </div>
+                </div>                 
+            </section>
+            <footer class="bg-dark border-2 border-info border-top fixed-bottom pb-3 position-static pt-3 text-white-50">
+                <div class="container">
+                    <div class="align-items-center gy-3 row">
+                        <div class="col-lg-3 col-sm-6 col-xl-4">
+                            <a class="d-inline-flex fw-bold h2 lh-1 link-primary mb-0 text-decoration-none text-uppercase" href="#"> <span class="text-info">Margot<br>Mothra</span> </a>
+                        </div>
+                        <div class="col-lg-auto col-sm-6 order-lg-last">
+                            <div class="d-inline-flex flex-wrap gap-2">
+                                <a aria-label="tiktok" class="btn btn-outline-light lh-1 p-2 rounded-circle" href=" https://discord.com/users/353409326762688514"> <img src="assets/discord.svg" alt="Discord" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/></a>
+                                <a href="https://www.tiktok.com/@dget.margot?_t=ZP-8vq0i0G7a3C&_r=1" aria-label="tiktok" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <img src="assets/tiktok.svg" alt="TikTok" width="20" height="20" style="filter: invert(1) grayscale(100%) brightness(100%);"/></a>
+                                <a href="https://www.instagram.com/dget.margot?igsh=MWRvODNjbnJncTF6cA%3D%3D&utm_source=qr" aria-label="instagram" class="btn btn-outline-light lh-1 p-2 rounded-circle"> <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                        <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.6.2 1.1.5 1.6 1s.8 1 .9 1.6c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.6-.5 1.1-1 1.6s-1 .8-1.6.9c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4-.6-.2-1.1-.5-1.6-1s-.8-1-1-1.6c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4.2-.6.5-1.1 1-1.6s1-.8 1.6-1c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zM12 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.4-10.8a1.4 1.4 0 1 1-1.4-1.4 1.4 1.4 0 0 1 1.4 1.4z"/> 
+                                        <!-- Instagram icon path here -->
+                                    </svg> </a>
+                            </div>
+                        </div>
+                        <div class="col-md col-sm-6">
+                            <a href="mailto:info@company.com" class="fs-5 link-light text-decoration-none">margot.mothra@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        <script>
+fetch("https://script.google.com/macros/s/AKfycbyIBV7uMsR2rIMpQffdSIU3y7Ddb6zwIEesd3YUYUQfE_1srS_20dEC-6QTWxeglFdi/exec")
+  .then(res => res.json())
+  .then(stats => {
+    const yearEl = document.getElementById("stat-year");
+    const monthEl = document.getElementById("stat-month");
+    const weekEl = document.getElementById("stat-week");
+
+    yearEl.classList.remove("dot-loading");
+    monthEl.classList.remove("dot-loading");
+    weekEl.classList.remove("dot-loading");
+
+    yearEl.textContent = stats.year;
+    monthEl.textContent = stats.month;
+    weekEl.textContent = stats.week;
+  })
+  .catch(err => {
+    console.error("Failed to fetch stats:", err);
+    document.getElementById("stat-year").textContent = "Error";
+    document.getElementById("stat-month").textContent = "Error";
+    document.getElementById("stat-week").textContent = "Error";
+  });
+</script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            function copyCode(btn) {
+              const code = btn.closest('.code-box').querySelector('code').textContent;
+              navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => (btn.textContent = 'Copy'), 1000);
+              });
+            }
+          </script>
+    </body>
+</html>
