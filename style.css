@@ -329,3 +329,12 @@ a:hover {
         /* Ensure the text section is full width */
     }
 }
+/* Override Bootstrap's body font family */
+:root {
+  --bs-body-font-family: 'IBM Plex Mono', monospace;
+}
+
+/* You can also enforce this directly on the body tag if needed */
+body {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
