@@ -61,19 +61,16 @@
                         <section class="project-block">
                             <h2 class="fs-1 pb-2 project-title ps-3">The Ranker</h2>
                             <p class="fs-5 pb-3 pe-3 project-description ps-3"><b>Objective</b>: Make a ranking tool that using a head to head &apos;this vs that&apos; style to build a ranked list<br><br><b>Background</b>:&nbsp; I do so many ranked lists and think a lot about what good qualities a ranking has. One problem to solve about sitting down to do a ranking is starting with a bias. Taking away as much big picture bias and boiling it down to just individial choices is <i>one way</i> to limit that bias and come up with a more objective list of your subjective feelings.<br><br><b>Tools used</b>: NVIM&nbsp;<br></p>
-                            <div class="align-items-center mb-n5 mt-1 pt-0 row">
-                                <div data-empty-placeholder class="mb-1"></div>
+                            <div class="align-items-center mb-n5 mt-n5 pt-0 row">
                                 <div class="col-md-6 ps-5">
                                     <p class="fs-5 pb-5 text-light"><b>Method:<br></b>1) Create an input form<br>2) Write the ranking logic<br>3) lots of tuning to make the user experience better<br>4) bonus: download to csv function<br>5) integrate into site</p>
                                 </div>
                                 <div class="col-md-6 text-end"><a href="margot_ranker.html"><img src="assets/ranker2.png" class="img-fluid rounded-1 shadow-sm thumbnail w-80" alt="Activity image"></a>
                                 </div>
                             </div>
-                            <div data-empty-placeholder></div>
                             <div class="align-items-center pt-4 row">
                                 <div class="col-md-6 text-start">
                                     <img src="assets/flowchart.png" class="img-fluid pb-3 ps-3 rounded-1 shadow-sm w-65" alt="Activity image">
-                                    <div data-empty-placeholder></div>
                                 </div>
                                 <div class="col-md-6">
                                     <p class="fs-5 pe-5 text-light" style="text-align: left;">This ranker uses binary insertion. It shuffles all items first, places the first winner automatically, then for each new item, it inserts it into the correct position in the already sorted list. At each step, it compares the new item to the midpoint of the current range, adjusting the range based on whether the new item is smaller or larger. This process repeats until all items are inserted, with about log₂(N) comparisons per item.</p>
