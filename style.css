@@ -334,7 +334,11 @@ a:hover {
   --bs-body-font-family: 'IBM Plex Mono', monospace;
 }
 
-/* You can also enforce this directly on the body tag if needed */
 body {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+/* Also, try targeting the HTML element itself */
+html {
   font-family: 'IBM Plex Mono', monospace !important;
 }
