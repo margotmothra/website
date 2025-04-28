@@ -1,3 +1,8 @@
+html body,
+body {
+    font-family: 'IBM Plex Mono', monospace !important;
+}
+
 @media (max-width:991px) {
     body.poster {
         margin-top: 60vh;

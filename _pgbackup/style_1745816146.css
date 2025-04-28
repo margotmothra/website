@@ -1,3 +1,8 @@
+html body, body {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+
 @media (max-width:991px) {
     body.poster {
         margin-top: 60vh;
@@ -85,17 +90,17 @@ body.poster {
     text-shadow: 0 1px 2px rgba(0,0,0,0.7);
 }
 
+
 a {
     color: #ff4d94;
     text-decoration: none;
-}
-
-a:hover {
+  }
+  
+  a:hover {
     color: #e63978;
     text-decoration: underline;
-}
-
-@font-face {
+  }
+  @font-face {
     font-family: 'IBM Plex Mono';
     src: url('/assets/fonts/ibm-plex-mono-latin-100-normal.woff2') format('woff2'),
          url('/assets/fonts/ibm-plex-mono-latin-100-normal.woff') format('woff'),
@@ -136,119 +141,107 @@ a:hover {
 }
 
 /* Add more styles similarly for other weights (ExtraLight, Light, Medium, SemiBold, etc.) */
+
 body {
-    font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'IBM Plex Mono', monospace !important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 100;
-
-    /* Use default weight, or specify a specific weight like 400 or 700 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 100; /* Use default weight, or specify a specific weight like 400 or 700 */
 }
 
 h1 {
-    font-size: 2.5rem;
-
-    /* Adjust size as needed */
-    font-weight: bold;
-
-    /* Example to make h1 bold */
+  font-size: 2.5rem; /* Adjust size as needed */
+  font-weight: bold; /* Example to make h1 bold */
 }
 
 h2 {
-    font-size: 2rem;
-    font-weight: normal;
+  font-size: 2rem;
+  font-weight: normal;
 }
 
 h3 {
-    font-size: 1.75rem;
-    font-weight: normal;
+  font-size: 1.75rem;
+  font-weight: normal;
 }
 
 h4 {
-    font-size: 1.5rem;
-    font-weight: normal;
+  font-size: 1.5rem;
+  font-weight: normal;
 }
 
 h5 {
-    font-size: 1.25rem;
-    font-weight: normal;
+  font-size: 1.25rem;
+  font-weight: normal;
 }
 
 h6 {
-    font-size: 1rem;
-    font-weight: normal;
+  font-size: 1rem;
+  font-weight: normal;
 }
 
-.ranker-container {
+  .ranker-container {
     max-width: 600px;
     margin: auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-button {
+  }
+  
+  button {
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     opacity: 0.8;
-}
+  }
 
-.stat-box {
+  .stat-box {
     height: 220px;
     width: 100%;
     min-width: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+  }
 
-/* Project block animation and layout */
+  /* Project block animation and layout */
 .project-block {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
+  }
+  
+  @keyframes fadeInUp {
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
-/* Thumbnail hover scale */
-.project-thumb {
+  }
+  
+  /* Thumbnail hover scale */
+  .project-thumb {
     max-width: 180px;
     transition: transform 0.2s ease;
-}
-
-.project-thumb:hover {
+  }
+  .project-thumb:hover {
+    transform: scale(1.05);
+  }
+  .thumbnail:hover {
     transform: scale(1.05);
 }
-
-.thumbnail:hover {
-    transform: scale(1.05);
-}
-
-/* Soft divider between projects */
-.project-divider {
+  
+  /* Soft divider between projects */
+  .project-divider {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin: 2rem 0;
-}
-
-/* Interactive hover styles */
-.project-block .btn:hover {
+  }
+  
+  /* Interactive hover styles */
+  .project-block .btn:hover {
     background-color: #ffb6c1;
     color: black;
     border-color: #ffb6c1;
@@ -257,191 +250,126 @@ button:hover {
 .project-block .btn:hover h5 {
     color: #ffb6c1;
 }
-
-.fade-up {
+  .fade-up {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
+  }
+  
+  @keyframes fadeInUp {
     to {
-        opacity: 1;
-        transform: translateY(0);
-        opacity: 1;
+      opacity: 1;
+      transform: translateY(0);
+      opacity: 1;
     }
-}
+  }
 
-.underline-input {
+  .underline-input {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(255, 182, 193, 0.5);
-
-    /* subtle underline */
+    border-bottom: 1px solid rgba(255, 182, 193, 0.5); /* subtle underline */
     color: white;
     padding: 0.25rem 0;
     width: 250px;
-    text-align: center;
-
-    /* left-aligned text */
+    text-align: center; /* left-aligned text */
     outline: none;
     transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.underline-input:focus {
-    border-bottom-color: rgba(255, 182, 193, 1);
-
-    /* stronger on focus */
+  }
+  
+  .underline-input:focus {
+    border-bottom-color: rgba(255, 182, 193, 1); /* stronger on focus */
     transform: scale(1.01);
-}
-
-.fade-up {
+  }
+  
+  .fade-up {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.4s ease forwards;
-}
-
-@keyframes fadeInUp {
+  }
+  
+  @keyframes fadeInUp {
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
+
+  #itemsList {
+    height: 300px; /* or any other fixed height */
+    overflow-y: auto; /* Allows vertical scrolling when content overflows */
+    margin-bottom: 1rem; /* Optional, just for spacing */
 }
 
-#itemsList {
-    height: 300px;
-
-    /* or any other fixed height */
-    overflow-y: auto;
-
-    /* Allows vertical scrolling when content overflows */
-    margin-bottom: 1rem;
-
-    /* Optional, just for spacing */
-}
-
-.scrollable-container {
-    height: 300px;
-
-    /* Adjust height as needed */
-    overflow-y: auto;
-
-    /* Adds vertical scrolling when content overflows */
-    margin-bottom: 1rem;
-
-    /* Optional for spacing */
+  .scrollable-container {
+    height: 300px; /* Adjust height as needed */
+    overflow-y: auto; /* Adds vertical scrolling when content overflows */
+    margin-bottom: 1rem; /* Optional for spacing */
 }
 
 .code-box {
-    max-height: 500px;
-
-    /* Limit the height of the code box */
-    overflow-y: auto;
-
-    /* Enables vertical scrolling when content overflows */
-    position: relative;
+  max-height: 500px; /* Limit the height of the code box */
+  overflow-y: auto;  /* Enables vertical scrolling when content overflows */
+  position: relative;
 }
 
 .code-box-header {
-    position: sticky;
-    top: 0;
-
-    /* Keep the header at the top of the code box */
-    z-index: 10;
-
-    /* Ensures the header is above the content */
-    padding: 10px;
-
-    /* Optional: Adjust padding */
+  position: sticky;
+  top: 0;             /* Keep the header at the top of the code box */
+  z-index: 10;        /* Ensures the header is above the content */
+  padding: 10px;      /* Optional: Adjust padding */
 }
-
 /* Flexbox layout for the stat boxes */
 .stat-box {
-    flex: 1 1 calc(33.3333% - 16px);
-
-    /* 3 columns, with space between */
-    margin-bottom: 16px;
-
-    /* spacing between rows on mobile */
-    max-width: calc(33.3333% - 16px);
-
-    /* prevent expanding too wide */
+  flex: 1 1 calc(33.3333% - 16px); /* 3 columns, with space between */
+  margin-bottom: 16px; /* spacing between rows on mobile */
+  max-width: calc(33.3333% - 16px); /* prevent expanding too wide */
 }
 
 /* Ensure the text inside doesn't get weirdly stretched */
 .stat-box .bg-light {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    /* Ensures content is spaced properly */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content is spaced properly */
 }
 
 /* Mobile view adjustments */
 @media (max-width: 767px) {
-    .stat-box {
-        flex: 1 1 100%;
-
-        /* Stacks them vertically with full width on mobile */
-        max-width: 100%;
-
-        /* Ensures they are full-width on mobile */
-    }
+  .stat-box {
+      flex: 1 1 100%; /* Stacks them vertically with full width on mobile */
+      max-width: 100%; /* Ensures they are full-width on mobile */
+  }
 }
-
 /* Ensure the image is above and centered on mobile */
 @media (max-width: 767px) {
-    .project-block {
-        display: flex;
-        flex-direction: column;
+  .project-block {
+      display: flex;
+      flex-direction: column; /* Stack image and text vertically */
+      align-items: center; /* Center the content horizontally */
+  }
 
-        /* Stack image and text vertically */
-        align-items: center;
+  /* Center the image */
+  .project-block .col-md-6 img {
+      display: block; /* Make the image a block element */
+      margin-bottom: 15px; /* Add space between image and text */
+      width: 100%; /* Ensure the image scales properly */
+      max-width: 100%; /* Ensure the image is responsive */
+  }
 
-        /* Center the content horizontally */
-    }
+  /* Ensure the text and buttons remain left-aligned */
+  .project-block .col-md-6 p,
+  .project-block .col-md-6 a {
+      text-align: left; /* Ensure the text and buttons are aligned to the left */
+      margin-left: 0; /* Reset any possible margin added */
+  }
 
-    /* Center the image */
-    .project-block .col-md-6 img {
-        display: block;
+  /* Optional: you can adjust the margin for the buttons to make them look better on mobile */
+  .project-block .col-md-6 a {
+      margin-left: 0; /* Ensure no extra margin */
+  }
 
-        /* Make the image a block element */
-        margin-bottom: 15px;
-
-        /* Add space between image and text */
-        width: 100%;
-
-        /* Ensure the image scales properly */
-        max-width: 100%;
-
-        /* Ensure the image is responsive */
-    }
-
-    /* Ensure the text and buttons remain left-aligned */
-    .project-block .col-md-6 p,
-    .project-block .col-md-6 a {
-        text-align: left;
-
-        /* Ensure the text and buttons are aligned to the left */
-        margin-left: 0;
-
-        /* Reset any possible margin added */
-    }
-
-    /* Optional: you can adjust the margin for the buttons to make them look better on mobile */
-    .project-block .col-md-6 a {
-        margin-left: 0;
-
-        /* Ensure no extra margin */
-    }
-
-    /* Fix the text section to not be centered */
-    .project-block .col-md-6:first-child {
-        text-align: left;
-
-        /* Ensure left alignment for the text */
-        width: 100%;
-
-        /* Ensure the text section is full width */
-    }
+  /* Fix the text section to not be centered */
+  .project-block .col-md-6:first-child {
+      text-align: left; /* Ensure left alignment for the text */
+      width: 100%; /* Ensure the text section is full width */
+  }
 }
